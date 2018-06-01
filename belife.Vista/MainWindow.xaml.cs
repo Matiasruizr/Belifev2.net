@@ -110,7 +110,12 @@ namespace Belife.Vista
                 c.Nombres = txtNombre.Text;
                 c.Apellidos = txtApellidos.Text;
                 //Validar que sea mayor a 18
-                c.FechaNacimiento = dtpFechaDeNacimiento.Text;
+                
+
+              
+                    c.FechaNacimiento = dtpFechaDeNacimiento.Text;
+               
+                
 
 
                 if (cbxSexo.SelectedItem.ToString() == "Hombre")
