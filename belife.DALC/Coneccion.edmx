@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BeLifeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BeLifeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cliente">
           <Key>
             <PropertyRef Name="RutCliente" />
@@ -15,6 +15,13 @@
           <Property Name="FechaNacimiento" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="IdSexo" Type="int" Nullable="false" />
           <Property Name="IdEstadoCivil" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comuna">
+          <Key>
+            <PropertyRef Name="IdComuna" />
+          </Key>
+          <Property Name="IdComuna" Type="int" Nullable="false" />
+          <Property Name="NombreComuna" Type="nvarchar" MaxLength="40" Nullable="false" />
         </EntityType>
         <EntityType Name="Contrato">
           <Key>
@@ -34,12 +41,50 @@
           <Property Name="PrimaMensual" Type="float" Nullable="false" />
           <Property Name="Observaciones" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
+        <EntityType Name="Contrato_Vivienda">
+          <Key>
+            <PropertyRef Name="Numero" />
+            <PropertyRef Name="CodigoPostal" />
+          </Key>
+          <Property Name="Numero" Type="nvarchar" MaxLength="14" Nullable="false" />
+          <Property Name="CodigoPostal" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContratoVehiculo">
+          <Key>
+            <PropertyRef Name="Numero" />
+            <PropertyRef Name="Patente" />
+          </Key>
+          <Property Name="Numero" Type="nvarchar" MaxLength="14" Nullable="false" />
+          <Property Name="Patente" Type="nvarchar" MaxLength="6" Nullable="false" />
+        </EntityType>
         <EntityType Name="EstadoCivil">
           <Key>
             <PropertyRef Name="IdEstadoCivil" />
           </Key>
           <Property Name="IdEstadoCivil" Type="int" Nullable="false" />
           <Property Name="Descripcion" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MarcaModeloVehiculo">
+          <Key>
+            <PropertyRef Name="IdMarca" />
+            <PropertyRef Name="IdModelo" />
+          </Key>
+          <Property Name="IdMarca" Type="int" Nullable="false" />
+          <Property Name="IdModelo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MarcaVehiculo">
+          <Key>
+            <PropertyRef Name="IdMarca" />
+          </Key>
+          <Property Name="IdMarca" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ModeloVehiculo">
+          <Key>
+            <PropertyRef Name="IdModelo" />
+          </Key>
+          <Property Name="IdModelo" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="40" Nullable="false" />
         </EntityType>
         <EntityType Name="Plan">
           <Key>
@@ -50,12 +95,55 @@
           <Property Name="PrimaBase" Type="float" Nullable="false" />
           <Property Name="PolizaActual" Type="nvarchar" MaxLength="15" Nullable="false" />
         </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="IdRegion" />
+          </Key>
+          <Property Name="IdRegion" Type="int" Nullable="false" />
+          <Property Name="NombreRegion" Type="nvarchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RegionComuna">
+          <Key>
+            <PropertyRef Name="IdRegion" />
+            <PropertyRef Name="IdComuna" />
+          </Key>
+          <Property Name="IdRegion" Type="int" Nullable="false" />
+          <Property Name="IdComuna" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Sexo">
           <Key>
             <PropertyRef Name="IdSexo" />
           </Key>
           <Property Name="IdSexo" Type="int" Nullable="false" />
           <Property Name="Descripcion" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoContrato">
+          <Key>
+            <PropertyRef Name="IdTipoContrato" />
+          </Key>
+          <Property Name="IdTipoContrato" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vehiculo">
+          <Key>
+            <PropertyRef Name="Patente" />
+          </Key>
+          <Property Name="Patente" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="IdMarca" Type="int" Nullable="false" />
+          <Property Name="IdModelo" Type="int" Nullable="false" />
+          <Property Name="Anho" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vivienda">
+          <Key>
+            <PropertyRef Name="CodigoPostal" />
+          </Key>
+          <Property Name="CodigoPostal" Type="int" Nullable="false" />
+          <Property Name="Anho" Type="int" Nullable="false" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ValorInmueble" Type="float" Nullable="false" />
+          <Property Name="ValorContenido" Type="float" Nullable="false" />
+          <Property Name="IdRegion" Type="int" Nullable="false" />
+          <Property Name="IdComuna" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="Cliente_EstadoCivil_FK1">
           <End Role="EstadoCivil" Type="Self.EstadoCivil" Multiplicity="1" />
@@ -78,6 +166,18 @@
             </Principal>
             <Dependent Role="Cliente">
               <PropertyRef Name="IdSexo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Comuna_RegionComuna_FK1">
+          <End Role="Comuna" Type="Self.Comuna" Multiplicity="1" />
+          <End Role="RegionComuna" Type="Self.RegionComuna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comuna">
+              <PropertyRef Name="IdComuna" />
+            </Principal>
+            <Dependent Role="RegionComuna">
+              <PropertyRef Name="IdComuna" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -105,12 +205,87 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="Marca_MarcaModelo_FK1">
+          <End Role="MarcaVehiculo" Type="Self.MarcaVehiculo" Multiplicity="1" />
+          <End Role="MarcaModeloVehiculo" Type="Self.MarcaModeloVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MarcaVehiculo">
+              <PropertyRef Name="IdMarca" />
+            </Principal>
+            <Dependent Role="MarcaModeloVehiculo">
+              <PropertyRef Name="IdMarca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Vehiculo_ContratoVehiculo_FK1">
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
+          <End Role="ContratoVehiculo" Type="Self.ContratoVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculo">
+              <PropertyRef Name="Patente" />
+            </Principal>
+            <Dependent Role="ContratoVehiculo">
+              <PropertyRef Name="Patente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Vehiculo_MarcaModelo_FK1">
+          <End Role="MarcaModeloVehiculo" Type="Self.MarcaModeloVehiculo" Multiplicity="1" />
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MarcaModeloVehiculo">
+              <PropertyRef Name="IdMarca" />
+              <PropertyRef Name="IdModelo" />
+            </Principal>
+            <Dependent Role="Vehiculo">
+              <PropertyRef Name="IdMarca" />
+              <PropertyRef Name="IdModelo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Vivienda_ContratoVivienda_FK1">
+          <End Role="Vivienda" Type="Self.Vivienda" Multiplicity="1" />
+          <End Role="Contrato_Vivienda" Type="Self.Contrato_Vivienda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vivienda">
+              <PropertyRef Name="CodigoPostal" />
+            </Principal>
+            <Dependent Role="Contrato_Vivienda">
+              <PropertyRef Name="CodigoPostal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Vivienda_RegionComuna_FK1">
+          <End Role="RegionComuna" Type="Self.RegionComuna" Multiplicity="1" />
+          <End Role="Vivienda" Type="Self.Vivienda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegionComuna">
+              <PropertyRef Name="IdRegion" />
+              <PropertyRef Name="IdComuna" />
+            </Principal>
+            <Dependent Role="Vivienda">
+              <PropertyRef Name="IdRegion" />
+              <PropertyRef Name="IdComuna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="BeLifeModelStoreContainer">
           <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comuna" EntityType="Self.Comuna" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contrato" EntityType="Self.Contrato" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contrato_Vivienda" EntityType="Self.Contrato_Vivienda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContratoVehiculo" EntityType="Self.ContratoVehiculo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EstadoCivil" EntityType="Self.EstadoCivil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MarcaModeloVehiculo" EntityType="Self.MarcaModeloVehiculo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MarcaVehiculo" EntityType="Self.MarcaVehiculo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ModeloVehiculo" EntityType="Self.ModeloVehiculo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Plan" EntityType="Self.Plan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegionComuna" EntityType="Self.RegionComuna" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sexo" EntityType="Self.Sexo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoContrato" EntityType="Self.TipoContrato" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vivienda" EntityType="Self.Vivienda" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="Cliente_EstadoCivil_FK1" Association="Self.Cliente_EstadoCivil_FK1">
             <End Role="EstadoCivil" EntitySet="EstadoCivil" />
             <End Role="Cliente" EntitySet="Cliente" />
@@ -118,6 +293,10 @@
           <AssociationSet Name="Cliente_Sexo_FK1" Association="Self.Cliente_Sexo_FK1">
             <End Role="Sexo" EntitySet="Sexo" />
             <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="Comuna_RegionComuna_FK1" Association="Self.Comuna_RegionComuna_FK1">
+            <End Role="Comuna" EntitySet="Comuna" />
+            <End Role="RegionComuna" EntitySet="RegionComuna" />
           </AssociationSet>
           <AssociationSet Name="Contrato_Cliente_FK1" Association="Self.Contrato_Cliente_FK1">
             <End Role="Cliente" EntitySet="Cliente" />
@@ -127,9 +306,28 @@
             <End Role="Plan" EntitySet="Plan" />
             <End Role="Contrato" EntitySet="Contrato" />
           </AssociationSet>
+          <AssociationSet Name="Marca_MarcaModelo_FK1" Association="Self.Marca_MarcaModelo_FK1">
+            <End Role="MarcaVehiculo" EntitySet="MarcaVehiculo" />
+            <End Role="MarcaModeloVehiculo" EntitySet="MarcaModeloVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="Vehiculo_ContratoVehiculo_FK1" Association="Self.Vehiculo_ContratoVehiculo_FK1">
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+            <End Role="ContratoVehiculo" EntitySet="ContratoVehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="Vehiculo_MarcaModelo_FK1" Association="Self.Vehiculo_MarcaModelo_FK1">
+            <End Role="MarcaModeloVehiculo" EntitySet="MarcaModeloVehiculo" />
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="Vivienda_ContratoVivienda_FK1" Association="Self.Vivienda_ContratoVivienda_FK1">
+            <End Role="Vivienda" EntitySet="Vivienda" />
+            <End Role="Contrato_Vivienda" EntitySet="Contrato_Vivienda" />
+          </AssociationSet>
+          <AssociationSet Name="Vivienda_RegionComuna_FK1" Association="Self.Vivienda_RegionComuna_FK1">
+            <End Role="RegionComuna" EntitySet="RegionComuna" />
+            <End Role="Vivienda" EntitySet="Vivienda" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BeLifeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -263,7 +461,218 @@
             <End Role="Plan" EntitySet="Plans" />
             <End Role="Contrato" EntitySet="Contratoes" />
           </AssociationSet>
+          <EntitySet Name="Comunas" EntityType="BeLifeModel.Comuna" />
+          <EntitySet Name="Contrato_Vivienda" EntityType="BeLifeModel.Contrato_Vivienda" />
+          <EntitySet Name="ContratoVehiculoes" EntityType="BeLifeModel.ContratoVehiculo" />
+          <EntitySet Name="MarcaModeloVehiculoes" EntityType="BeLifeModel.MarcaModeloVehiculo" />
+          <EntitySet Name="MarcaVehiculoes" EntityType="BeLifeModel.MarcaVehiculo" />
+          <EntitySet Name="ModeloVehiculoes" EntityType="BeLifeModel.ModeloVehiculo" />
+          <EntitySet Name="Regions" EntityType="BeLifeModel.Region" />
+          <EntitySet Name="RegionComunas" EntityType="BeLifeModel.RegionComuna" />
+          <EntitySet Name="TipoContratoes" EntityType="BeLifeModel.TipoContrato" />
+          <EntitySet Name="Vehiculoes" EntityType="BeLifeModel.Vehiculo" />
+          <EntitySet Name="Viviendas" EntityType="BeLifeModel.Vivienda" />
+          <AssociationSet Name="Comuna_RegionComuna_FK1" Association="BeLifeModel.Comuna_RegionComuna_FK1">
+            <End Role="Comuna" EntitySet="Comunas" />
+            <End Role="RegionComuna" EntitySet="RegionComunas" />
+          </AssociationSet>
+          <AssociationSet Name="Vivienda_ContratoVivienda_FK1" Association="BeLifeModel.Vivienda_ContratoVivienda_FK1">
+            <End Role="Vivienda" EntitySet="Viviendas" />
+            <End Role="Contrato_Vivienda" EntitySet="Contrato_Vivienda" />
+          </AssociationSet>
+          <AssociationSet Name="Vehiculo_ContratoVehiculo_FK1" Association="BeLifeModel.Vehiculo_ContratoVehiculo_FK1">
+            <End Role="Vehiculo" EntitySet="Vehiculoes" />
+            <End Role="ContratoVehiculo" EntitySet="ContratoVehiculoes" />
+          </AssociationSet>
+          <AssociationSet Name="Marca_MarcaModelo_FK1" Association="BeLifeModel.Marca_MarcaModelo_FK1">
+            <End Role="MarcaVehiculo" EntitySet="MarcaVehiculoes" />
+            <End Role="MarcaModeloVehiculo" EntitySet="MarcaModeloVehiculoes" />
+          </AssociationSet>
+          <AssociationSet Name="Vehiculo_MarcaModelo_FK1" Association="BeLifeModel.Vehiculo_MarcaModelo_FK1">
+            <End Role="MarcaModeloVehiculo" EntitySet="MarcaModeloVehiculoes" />
+            <End Role="Vehiculo" EntitySet="Vehiculoes" />
+          </AssociationSet>
+          <AssociationSet Name="Vivienda_RegionComuna_FK1" Association="BeLifeModel.Vivienda_RegionComuna_FK1">
+            <End Role="RegionComuna" EntitySet="RegionComunas" />
+            <End Role="Vivienda" EntitySet="Viviendas" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Comuna">
+          <Key>
+            <PropertyRef Name="IdComuna" />
+          </Key>
+          <Property Name="IdComuna" Type="Int32" Nullable="false" />
+          <Property Name="NombreComuna" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RegionComunas" Relationship="BeLifeModel.Comuna_RegionComuna_FK1" FromRole="Comuna" ToRole="RegionComuna" />
+        </EntityType>
+        <EntityType Name="Contrato_Vivienda">
+          <Key>
+            <PropertyRef Name="Numero" />
+            <PropertyRef Name="CodigoPostal" />
+          </Key>
+          <Property Name="Numero" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="CodigoPostal" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Vivienda" Relationship="BeLifeModel.Vivienda_ContratoVivienda_FK1" FromRole="Contrato_Vivienda" ToRole="Vivienda" />
+        </EntityType>
+        <EntityType Name="ContratoVehiculo">
+          <Key>
+            <PropertyRef Name="Numero" />
+            <PropertyRef Name="Patente" />
+          </Key>
+          <Property Name="Numero" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="Patente" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Vehiculo" Relationship="BeLifeModel.Vehiculo_ContratoVehiculo_FK1" FromRole="ContratoVehiculo" ToRole="Vehiculo" />
+        </EntityType>
+        <EntityType Name="MarcaModeloVehiculo">
+          <Key>
+            <PropertyRef Name="IdMarca" />
+            <PropertyRef Name="IdModelo" />
+          </Key>
+          <Property Name="IdMarca" Type="Int32" Nullable="false" />
+          <Property Name="IdModelo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MarcaVehiculo" Relationship="BeLifeModel.Marca_MarcaModelo_FK1" FromRole="MarcaModeloVehiculo" ToRole="MarcaVehiculo" />
+          <NavigationProperty Name="Vehiculoes" Relationship="BeLifeModel.Vehiculo_MarcaModelo_FK1" FromRole="MarcaModeloVehiculo" ToRole="Vehiculo" />
+        </EntityType>
+        <EntityType Name="MarcaVehiculo">
+          <Key>
+            <PropertyRef Name="IdMarca" />
+          </Key>
+          <Property Name="IdMarca" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MarcaModeloVehiculoes" Relationship="BeLifeModel.Marca_MarcaModelo_FK1" FromRole="MarcaVehiculo" ToRole="MarcaModeloVehiculo" />
+        </EntityType>
+        <EntityType Name="ModeloVehiculo">
+          <Key>
+            <PropertyRef Name="IdModelo" />
+          </Key>
+          <Property Name="IdModelo" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="IdRegion" />
+          </Key>
+          <Property Name="IdRegion" Type="Int32" Nullable="false" />
+          <Property Name="NombreRegion" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RegionComuna">
+          <Key>
+            <PropertyRef Name="IdRegion" />
+            <PropertyRef Name="IdComuna" />
+          </Key>
+          <Property Name="IdRegion" Type="Int32" Nullable="false" />
+          <Property Name="IdComuna" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Comuna" Relationship="BeLifeModel.Comuna_RegionComuna_FK1" FromRole="RegionComuna" ToRole="Comuna" />
+          <NavigationProperty Name="Viviendas" Relationship="BeLifeModel.Vivienda_RegionComuna_FK1" FromRole="RegionComuna" ToRole="Vivienda" />
+        </EntityType>
+        <EntityType Name="TipoContrato">
+          <Key>
+            <PropertyRef Name="IdTipoContrato" />
+          </Key>
+          <Property Name="IdTipoContrato" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Vehiculo">
+          <Key>
+            <PropertyRef Name="Patente" />
+          </Key>
+          <Property Name="Patente" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="IdMarca" Type="Int32" Nullable="false" />
+          <Property Name="IdModelo" Type="Int32" Nullable="false" />
+          <Property Name="Anho" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ContratoVehiculoes" Relationship="BeLifeModel.Vehiculo_ContratoVehiculo_FK1" FromRole="Vehiculo" ToRole="ContratoVehiculo" />
+          <NavigationProperty Name="MarcaModeloVehiculo" Relationship="BeLifeModel.Vehiculo_MarcaModelo_FK1" FromRole="Vehiculo" ToRole="MarcaModeloVehiculo" />
+        </EntityType>
+        <EntityType Name="Vivienda">
+          <Key>
+            <PropertyRef Name="CodigoPostal" />
+          </Key>
+          <Property Name="CodigoPostal" Type="Int32" Nullable="false" />
+          <Property Name="Anho" Type="Int32" Nullable="false" />
+          <Property Name="Direccion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ValorInmueble" Type="Double" Nullable="false" />
+          <Property Name="ValorContenido" Type="Double" Nullable="false" />
+          <Property Name="IdRegion" Type="Int32" Nullable="false" />
+          <Property Name="IdComuna" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Contrato_Vivienda" Relationship="BeLifeModel.Vivienda_ContratoVivienda_FK1" FromRole="Vivienda" ToRole="Contrato_Vivienda" />
+          <NavigationProperty Name="RegionComuna" Relationship="BeLifeModel.Vivienda_RegionComuna_FK1" FromRole="Vivienda" ToRole="RegionComuna" />
+        </EntityType>
+        <Association Name="Comuna_RegionComuna_FK1">
+          <End Type="BeLifeModel.Comuna" Role="Comuna" Multiplicity="1" />
+          <End Type="BeLifeModel.RegionComuna" Role="RegionComuna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comuna">
+              <PropertyRef Name="IdComuna" />
+            </Principal>
+            <Dependent Role="RegionComuna">
+              <PropertyRef Name="IdComuna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Vivienda_ContratoVivienda_FK1">
+          <End Type="BeLifeModel.Vivienda" Role="Vivienda" Multiplicity="1" />
+          <End Type="BeLifeModel.Contrato_Vivienda" Role="Contrato_Vivienda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vivienda">
+              <PropertyRef Name="CodigoPostal" />
+            </Principal>
+            <Dependent Role="Contrato_Vivienda">
+              <PropertyRef Name="CodigoPostal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Vehiculo_ContratoVehiculo_FK1">
+          <End Type="BeLifeModel.Vehiculo" Role="Vehiculo" Multiplicity="1" />
+          <End Type="BeLifeModel.ContratoVehiculo" Role="ContratoVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculo">
+              <PropertyRef Name="Patente" />
+            </Principal>
+            <Dependent Role="ContratoVehiculo">
+              <PropertyRef Name="Patente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Marca_MarcaModelo_FK1">
+          <End Type="BeLifeModel.MarcaVehiculo" Role="MarcaVehiculo" Multiplicity="1" />
+          <End Type="BeLifeModel.MarcaModeloVehiculo" Role="MarcaModeloVehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MarcaVehiculo">
+              <PropertyRef Name="IdMarca" />
+            </Principal>
+            <Dependent Role="MarcaModeloVehiculo">
+              <PropertyRef Name="IdMarca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Vehiculo_MarcaModelo_FK1">
+          <End Type="BeLifeModel.MarcaModeloVehiculo" Role="MarcaModeloVehiculo" Multiplicity="1" />
+          <End Type="BeLifeModel.Vehiculo" Role="Vehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MarcaModeloVehiculo">
+              <PropertyRef Name="IdMarca" />
+              <PropertyRef Name="IdModelo" />
+            </Principal>
+            <Dependent Role="Vehiculo">
+              <PropertyRef Name="IdMarca" />
+              <PropertyRef Name="IdModelo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Vivienda_RegionComuna_FK1">
+          <End Type="BeLifeModel.RegionComuna" Role="RegionComuna" Multiplicity="1" />
+          <End Type="BeLifeModel.Vivienda" Role="Vivienda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegionComuna">
+              <PropertyRef Name="IdRegion" />
+              <PropertyRef Name="IdComuna" />
+            </Principal>
+            <Dependent Role="Vivienda">
+              <PropertyRef Name="IdRegion" />
+              <PropertyRef Name="IdComuna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -322,6 +731,101 @@
               <MappingFragment StoreEntitySet="Sexo">
                 <ScalarProperty Name="IdSexo" ColumnName="IdSexo" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comunas">
+            <EntityTypeMapping TypeName="BeLifeModel.Comuna">
+              <MappingFragment StoreEntitySet="Comuna">
+                <ScalarProperty Name="NombreComuna" ColumnName="NombreComuna" />
+                <ScalarProperty Name="IdComuna" ColumnName="IdComuna" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contrato_Vivienda">
+            <EntityTypeMapping TypeName="BeLifeModel.Contrato_Vivienda">
+              <MappingFragment StoreEntitySet="Contrato_Vivienda">
+                <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContratoVehiculoes">
+            <EntityTypeMapping TypeName="BeLifeModel.ContratoVehiculo">
+              <MappingFragment StoreEntitySet="ContratoVehiculo">
+                <ScalarProperty Name="Patente" ColumnName="Patente" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MarcaModeloVehiculoes">
+            <EntityTypeMapping TypeName="BeLifeModel.MarcaModeloVehiculo">
+              <MappingFragment StoreEntitySet="MarcaModeloVehiculo">
+                <ScalarProperty Name="IdModelo" ColumnName="IdModelo" />
+                <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MarcaVehiculoes">
+            <EntityTypeMapping TypeName="BeLifeModel.MarcaVehiculo">
+              <MappingFragment StoreEntitySet="MarcaVehiculo">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ModeloVehiculoes">
+            <EntityTypeMapping TypeName="BeLifeModel.ModeloVehiculo">
+              <MappingFragment StoreEntitySet="ModeloVehiculo">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdModelo" ColumnName="IdModelo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regions">
+            <EntityTypeMapping TypeName="BeLifeModel.Region">
+              <MappingFragment StoreEntitySet="Region">
+                <ScalarProperty Name="NombreRegion" ColumnName="NombreRegion" />
+                <ScalarProperty Name="IdRegion" ColumnName="IdRegion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegionComunas">
+            <EntityTypeMapping TypeName="BeLifeModel.RegionComuna">
+              <MappingFragment StoreEntitySet="RegionComuna">
+                <ScalarProperty Name="IdComuna" ColumnName="IdComuna" />
+                <ScalarProperty Name="IdRegion" ColumnName="IdRegion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoContratoes">
+            <EntityTypeMapping TypeName="BeLifeModel.TipoContrato">
+              <MappingFragment StoreEntitySet="TipoContrato">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdTipoContrato" ColumnName="IdTipoContrato" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehiculoes">
+            <EntityTypeMapping TypeName="BeLifeModel.Vehiculo">
+              <MappingFragment StoreEntitySet="Vehiculo">
+                <ScalarProperty Name="Anho" ColumnName="Anho" />
+                <ScalarProperty Name="IdModelo" ColumnName="IdModelo" />
+                <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
+                <ScalarProperty Name="Patente" ColumnName="Patente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Viviendas">
+            <EntityTypeMapping TypeName="BeLifeModel.Vivienda">
+              <MappingFragment StoreEntitySet="Vivienda">
+                <ScalarProperty Name="IdComuna" ColumnName="IdComuna" />
+                <ScalarProperty Name="IdRegion" ColumnName="IdRegion" />
+                <ScalarProperty Name="ValorContenido" ColumnName="ValorContenido" />
+                <ScalarProperty Name="ValorInmueble" ColumnName="ValorInmueble" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Anho" ColumnName="Anho" />
+                <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

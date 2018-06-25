@@ -52,6 +52,9 @@
     <Compile Include="Cliente.cs">
       <DependentUpon>Coneccion.tt</DependentUpon>
     </Compile>
+    <Compile Include="Comuna.cs">
+      <DependentUpon>Coneccion.tt</DependentUpon>
+    </Compile>
     <Compile Include="Coneccion.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -70,14 +73,44 @@
     <Compile Include="Contrato.cs">
       <DependentUpon>Coneccion.tt</DependentUpon>
     </Compile>
+    <Compile Include="ContratoVehiculo.cs">
+      <DependentUpon>Coneccion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contrato_Vivienda.cs">
+      <DependentUpon>Coneccion.tt</DependentUpon>
+    </Compile>
     <Compile Include="EstadoCivil.cs">
+      <DependentUpon>Coneccion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MarcaModeloVehiculo.cs">
+      <DependentUpon>Coneccion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MarcaVehiculo.cs">
+      <DependentUpon>Coneccion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloVehiculo.cs">
       <DependentUpon>Coneccion.tt</DependentUpon>
     </Compile>
     <Compile Include="Plan.cs">
       <DependentUpon>Coneccion.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Region.cs">
+      <DependentUpon>Coneccion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RegionComuna.cs">
+      <DependentUpon>Coneccion.tt</DependentUpon>
+    </Compile>
     <Compile Include="Sexo.cs">
+      <DependentUpon>Coneccion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoContrato.cs">
+      <DependentUpon>Coneccion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vehiculo.cs">
+      <DependentUpon>Coneccion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vivienda.cs">
       <DependentUpon>Coneccion.tt</DependentUpon>
     </Compile>
   </ItemGroup>

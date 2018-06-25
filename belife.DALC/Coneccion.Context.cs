@@ -30,5 +30,16 @@ namespace belife.DALC
         public virtual DbSet<EstadoCivil> EstadoCivils { get; set; }
         public virtual DbSet<Plan> Plans { get; set; }
         public virtual DbSet<Sexo> Sexoes { get; set; }
+        public virtual DbSet<Comuna> Comunas { get; set; }
+        public virtual DbSet<Contrato_Vivienda> Contrato_Vivienda { get; set; }
+        public virtual DbSet<ContratoVehiculo> ContratoVehiculoes { get; set; }
+        public virtual DbSet<MarcaModeloVehiculo> MarcaModeloVehiculoes { get; set; }
+        public virtual DbSet<MarcaVehiculo> MarcaVehiculoes { get; set; }
+        public virtual DbSet<ModeloVehiculo> ModeloVehiculoes { get; set; }
+        public virtual DbSet<Region> Regions { get; set; }
+        public virtual DbSet<RegionComuna> RegionComunas { get; set; }
+        public virtual DbSet<TipoContrato> TipoContratoes { get; set; }
+        public virtual DbSet<Vehiculo> Vehiculoes { get; set; }
+        public virtual DbSet<Vivienda> Viviendas { get; set; }
     }
 }

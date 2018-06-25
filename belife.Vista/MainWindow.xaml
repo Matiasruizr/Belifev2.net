@@ -36,7 +36,7 @@
 
 
 
-        <TabControl Height="424" Margin="-1,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+        <TabControl Height="424" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="-1,0,0,0">
             <TabControl.Resources>
                 <Style TargetType="TabItem">
                     <Setter Property="Template">
@@ -71,8 +71,11 @@
                 </TransformGroup>
             </TabControl.RenderTransform>
 
-            <TabItem Header="Clientes" Margin="312,-2,-360,0"  IsSelected="True">
-                <Grid  Margin="-4,-4,-6,-9">
+            <TabItem Header="Clientes" Margin="174,-2,-222,0"  IsSelected="True" Foreground="white">
+                <Grid  Margin="-5,-4,-6,-3">
+
+
+
                     <Grid.ColumnDefinitions>
 
                         <ColumnDefinition Width="434*"/>
@@ -83,92 +86,96 @@
                         <ColumnDefinition Width="163*"/>
 
                     </Grid.ColumnDefinitions>
-                    <TextBox Name="txtRutCliente"  HorizontalAlignment="Left" Height="24" Margin="188,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                    <Label Name="lblRutCliente" Content="Rut cliente" HorizontalAlignment="Left" Margin="91,87,0,0" VerticalAlignment="Top"/>
+                    <DockPanel HorizontalAlignment="Left" Height="405" LastChildFill="False" Margin="49,0,0,-2" VerticalAlignment="Top" Width="174" Background="#FF4A148C" Grid.ColumnSpan="2" Grid.Column="4"/>
+                    <TextBox Name="txtRutCliente"  HorizontalAlignment="Left" Height="24" Margin="158,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <Label Name="lblRutCliente" Content="Rut cliente" HorizontalAlignment="Left" Margin="34,123,0,0" VerticalAlignment="Top"/>
 
-                    <TextBox Name="txtNombre"  HorizontalAlignment="Left" Height="24" Margin="188,124,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                    <Label Name="lblNombre" Content="Nombre" HorizontalAlignment="Left" Margin="91,126,0,0" VerticalAlignment="Top"/>
+                    <TextBox Name="txtNombre"  HorizontalAlignment="Left" Height="24" Margin="158,150,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <Label Name="lblNombre" Content="Nombre" HorizontalAlignment="Left" Margin="34,157,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,0.551"/>
 
-                    <TextBox Name="txtApellidos"  HorizontalAlignment="Left" Height="24" Margin="188,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                    <Label Name="lblApellidos" Content="Apellidos" HorizontalAlignment="Left" Margin="91,164,0,0" VerticalAlignment="Top"/>
+                    <TextBox Name="txtApellidos"  HorizontalAlignment="Left" Height="24" Margin="158,184,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <Label Name="lblApellidos" Content="Apellidos" HorizontalAlignment="Left" Margin="34,190,0,0" VerticalAlignment="Top"/>
 
-                    <Label Name="lblFechaDeNacimiento" Content="Fecha de &#xD;&#xA;Nacimiento" HorizontalAlignment="Left" Margin="91,198,0,0" VerticalAlignment="Top"  Height="40"/>
-                    <DatePicker Name="dtpFechaDeNacimiento" HorizontalAlignment="Left" Margin="188,208,0,0" VerticalAlignment="Top" Width="120"/>
+                    <Label Name="lblFechaDeNacimiento" Content="Fecha de &#xD;&#xA;Nacimiento" HorizontalAlignment="Left" Margin="34,222,0,0" VerticalAlignment="Top"  Height="40"/>
+                    <DatePicker Name="dtpFechaDeNacimiento" HorizontalAlignment="Left" Margin="158,228,0,0" VerticalAlignment="Top" Width="120"/>
 
-                    <Label Name="lblSexo" Content="Sexo" HorizontalAlignment="Left" Margin="91,255,0,0" VerticalAlignment="Top"/>
-                    <Label Name="lblEstadoCivil" Content="Estado civil" HorizontalAlignment="Left" Margin="91,300,0,0" VerticalAlignment="Top"/>
-                    <Button Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="41,129,0,0" VerticalAlignment="Top" Width="119" Click="btnAgregar_Click" Height="42" Grid.Column="4" Grid.ColumnSpan="2"/>
-                    <Button Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="41,298,0,0" VerticalAlignment="Top" Width="119" Click="btnEliminar_Click" Height="41" Grid.Column="4" Grid.ColumnSpan="2"/>
-                    <ComboBox Name="cbxSexo" HorizontalAlignment="Left" Margin="188,255,0,0" VerticalAlignment="Top" Width="120"/>
-                    <ComboBox Name="cbxEstadoCivil" HorizontalAlignment="Left" Margin="188,300,0,0" VerticalAlignment="Top" Width="120"/>
+                    <Label Name="lblSexo" Content="Sexo" HorizontalAlignment="Left" Margin="34,273,0,0" VerticalAlignment="Top"/>
+                    <Label Name="lblEstadoCivil" Content="Estado civil" HorizontalAlignment="Left" Margin="34,305,0,0" VerticalAlignment="Top"/>
+                    <Button Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="14,140,0,0" VerticalAlignment="Top" Width="119" Click="btnAgregar_Click" Height="42" Grid.Column="5"/>
+                    <Button Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="14,275,0,0" VerticalAlignment="Top" Width="119" Click="btnEliminar_Click" Height="41" Grid.Column="5"/>
+                    <ComboBox Name="cbxSexo" HorizontalAlignment="Left" Margin="158,271,0,0" VerticalAlignment="Top" Width="120" />
+                    <ComboBox Name="cbxEstadoCivil" HorizontalAlignment="Left" Margin="158,303,0,0" VerticalAlignment="Top" Width="120"/>
 
-                    <Label Name="lblMuestra" Content="Datos del cliente:" HorizontalAlignment="Left" Margin="357,92,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
-                    <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="41,46,0,0" VerticalAlignment="Top" Width="119" Height="40" Click="btnBuscar_Click" Grid.Column="4" Grid.ColumnSpan="2"/>
-                    <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="41,216,0,0" VerticalAlignment="Top" Width="119"  Height="41" Click="btnModificar_Click" Grid.Column="4" Grid.ColumnSpan="2"/>
+                    <Label Name="lblMuestra" Content="Datos del cliente:" HorizontalAlignment="Left" Margin="34,82,0,0" VerticalAlignment="Top"/>
 
+                    <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="14,66,0,0" VerticalAlignment="Top" Width="119" Height="40" Click="btnBuscar_Click" Grid.Column="5"/>
+                    <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="14,212,0,0" VerticalAlignment="Top" Width="119"  Height="41" Click="btnModificar_Click" Grid.Column="5"/>
 
-                    <Label Content="Clientes" HorizontalAlignment="Left" Margin="66,10,0,0"  VerticalAlignment="Top" FontSize="22"/>
-                    <TextBox Name="txtClientes" HorizontalAlignment="Left" Height="23" Margin="357,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" Grid.ColumnSpan="4" />
+                    <DockPanel HorizontalAlignment="Left" Height="42" LastChildFill="False" Margin="3,-2,0,0" VerticalAlignment="Top" Width="618" Grid.ColumnSpan="5" Background="#FF673AB7"/>
+                    <Label Content="Clientes" HorizontalAlignment="Left" Margin="292,4,0,0"  VerticalAlignment="Top" FontSize="22"/>
+                    <TextBox Name="txtClientes" HorizontalAlignment="Left" Height="23" Margin="158,79,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" />
 
                 </Grid>
             </TabItem>
-            <TabItem Header="Contratos" Margin="361,-2,-407,0" >
+            <TabItem Header="Contratos" Margin="221,-2,-267,0" Foreground="white" >
                 <Grid  Margin="-3" HorizontalAlignment="Left" Width="793">
-                    
 
 
-                    <TextBox Name="txtNumero"  HorizontalAlignment="Left" Height="24" Margin="165,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                    <Label Name="lblNumero" Content="Numero" HorizontalAlignment="Left" Margin="25,110,0,0" VerticalAlignment="Top" Foreground="#FFFDF9F9" Height="26" Width="57"/>
 
-                    <Label Name="lblFechaCreacion" Content="Fecha de creacion" HorizontalAlignment="Left" Margin="25,147,0,0" VerticalAlignment="Top" Foreground="#FFFDF9F9" Height="26" Width="113"/>
-                    <DatePicker Name="dtpFechaCreacion" HorizontalAlignment="Left" Margin="165,149,0,0" VerticalAlignment="Top" Height="25" Width="21"/>
+                    <TextBox Name="txtNumero"  HorizontalAlignment="Left" Height="24" Margin="178,93,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <Label Name="lblNumero" Content="Numero" HorizontalAlignment="Left" Margin="26,99,0,0" VerticalAlignment="Top" Foreground="#FFFDF9F9" Height="26" Width="57"/>
 
-                    <Label Name="lblFechaTermino" Content="Fecha de termino" HorizontalAlignment="Left" Margin="25,190,0,0" VerticalAlignment="Top" Foreground="#FFFDF9F9" Height="26" Width="110"/>
-                    <DatePicker Name="dtpFechaTermino" HorizontalAlignment="Left" Margin="165,190,0,0" VerticalAlignment="Top" Height="25" Width="21"/>
+                    <Label Name="lblFechaCreacion" Content="Fecha de creacion" HorizontalAlignment="Left" Margin="26,206,0,0" VerticalAlignment="Top" Foreground="#FFFDF9F9" Height="26" Width="113"/>
+                    <DatePicker Name="dtpFechaCreacion" HorizontalAlignment="Left" Margin="180,204,0,0" VerticalAlignment="Top" Height="25" Width="21" RenderTransformOrigin="0.524,0.56"/>
 
-                    <Label Name="lblFechaInicioVigencia" Content="Fecha inicio vigencia" HorizontalAlignment="Left" Margin="25,229,0,0" VerticalAlignment="Top" Foreground="#FFFDF9F9" Height="26" Width="128"/>
-                    <DatePicker Name="dtpFechaInicioVigencia" HorizontalAlignment="Left" Margin="165,231,0,0" VerticalAlignment="Top" Height="25" Width="21"/>
-                    <Button x:Name="btnCBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="0,47,0,0" VerticalAlignment="Top" Width="120" Height="40" RenderTransformOrigin="3.052,-1.281" Click="btnCBuscar_Click" Grid.Column="5"/>
-                    <Button x:Name="btnCAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="0,123,0,0" VerticalAlignment="Top" Width="120" Height="41" Click="btnCAgregar_Click" Grid.Column="5"/>
-                    <Button x:Name="btnCModificar" Content="Modificar" HorizontalAlignment="Left" Margin="0,197,0,0" VerticalAlignment="Top" Width="120" Height="41" Click="btnCModificar_Click" Grid.Column="5"/>
-                    <Button x:Name="btnCEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="0,273,0,0" VerticalAlignment="Top" Width="120" Height="41" Click="btnCEliminar_Click" Grid.Column="5"/>
+                    <Label Name="lblFechaTermino" Content="Fecha de termino" HorizontalAlignment="Left" Margin="26,285,0,0" VerticalAlignment="Top" Foreground="#FFFDF9F9" Height="26" Width="110"/>
+                    <DatePicker Name="dtpFechaTermino" HorizontalAlignment="Left" Margin="182,288,0,0" VerticalAlignment="Top" Height="25" Width="21"/>
+                    <DockPanel Height="403" LastChildFill="False" VerticalAlignment="Top" Margin="620,-1,-1,0" Background="#FF4A148C"/>
+                    <Label Name="lblFechaInicioVigencia" Content="Fecha inicio vigencia" HorizontalAlignment="Left" Margin="26,245,0,0" VerticalAlignment="Top" Foreground="#FFFDF9F9" Height="26" Width="128"/>
+                    <DatePicker Name="dtpFechaInicioVigencia" HorizontalAlignment="Left" Margin="182,250,0,0" VerticalAlignment="Top" Height="25" Width="21"/>
+                    <Button x:Name="btnCBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="653,70,0,0" VerticalAlignment="Top" Width="120" Height="40" RenderTransformOrigin="3.052,-1.281" Click="btnCBuscar_Click"/>
+                    <Button x:Name="btnCAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="653,144,0,0" VerticalAlignment="Top" Width="120" Height="41" Click="btnCAgregar_Click"/>
+                    <Button x:Name="btnCModificar" Content="Modificar" HorizontalAlignment="Left" Margin="653,216,0,0" VerticalAlignment="Top" Width="120" Height="41" Click="btnCModificar_Click"/>
+                    <Button x:Name="btnCEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="653,279,0,0" VerticalAlignment="Top" Width="120" Height="41" Click="btnCEliminar_Click"/>
 
-
-                    <Label Content="Contratos" HorizontalAlignment="Left" Margin="133,36,0,0" VerticalAlignment="Top" Width="152"   FontSize="22" Height="36"/>
-                    <TextBox Name="txtRutClienteC"  HorizontalAlignment="Left" Height="24" Margin="165,269,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                    <Label Name="lblRutClienteC" Content="Rut cliente" HorizontalAlignment="Left" Margin="28,268,0,0" VerticalAlignment="Top" Foreground="#FFFDF9F9" Height="26" Width="71"/>
-                    <Label Name="lblCodigoPlan" Content="Codigo plan" HorizontalAlignment="Left" Margin="28,306,0,0" VerticalAlignment="Top" Foreground="#FFFDF9F9" Height="26" Width="80"/>
-                    <Label x:Name="lblVigente" Content="Vigente" HorizontalAlignment="Left" Margin="28,342,0,0" VerticalAlignment="Top" Foreground="#FFFDF9F9" Height="26" Width="54"/>
-                    <ComboBox x:Name="cbxPlan" HorizontalAlignment="Left" Margin="165,310,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
-                    <CheckBox Name="chkVigente" Content="Vigente" HorizontalAlignment="Left" Margin="165,348,0,0" VerticalAlignment="Top" Height="18" Width="66"/>
-                    <Label x:Name="lblDeclaracionSalud" Content="Declaracion salud" HorizontalAlignment="Left" Margin="37,203,0,0" VerticalAlignment="Top" Foreground="#FFFDF9F9" Grid.ColumnSpan="4" Grid.Column="1" Height="26" Width="111"/>
-                    <CheckBox x:Name="chkDeclaracionSalud" Content="Salud" HorizontalAlignment="Left" Margin="41.072,206,0,0" VerticalAlignment="Top" Grid.Column="4" Height="18" Width="54"/>
-                    <TextBox x:Name="txtObservaciones"  HorizontalAlignment="Left" Height="24" Margin="41.072,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="4"/>
-                    <Label x:Name="lblObservaciones" Content="Observaciones" HorizontalAlignment="Left" Margin="37,238,0,0" VerticalAlignment="Top" Foreground="#FFFDF9F9" Grid.ColumnSpan="4" Grid.Column="1" Height="26" Width="94"/>
-                    <TextBox x:Name="txtNumeroBuscar"  HorizontalAlignment="Left" Height="24" Margin="41.072,117,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Grid.Column="4"/>
-                    <Label x:Name="lblNumerodeContrato" Content="Buscar por numero" HorizontalAlignment="Left" Margin="38,117,0,0" VerticalAlignment="Top" Foreground="#FFFDF9F9" Width="112" Grid.ColumnSpan="4" Grid.Column="1" Height="26"/>
-                    <Label x:Name="lblDatosContrato" Content="DatosContrato" HorizontalAlignment="Left" Margin="38,146,0,0" VerticalAlignment="Top" Foreground="#FFFDF9F9" Width="222" Grid.ColumnSpan="4" Grid.Column="1" Height="26"/>
-
+                    <DockPanel HorizontalAlignment="Left" Height="42" LastChildFill="False" Margin="-1,-1,0,0" VerticalAlignment="Top" Width="621" Background="#FF673AB7"/>
+                    <Label Content="Contratos" HorizontalAlignment="Left" Margin="292,4,0,0" VerticalAlignment="Top" Width="152"   FontSize="22" Height="36"/>
+                    <TextBox Name="txtRutClienteC"  HorizontalAlignment="Left" Height="24" Margin="179,127,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <Label Name="lblRutClienteC" Content="Rut cliente" HorizontalAlignment="Left" Margin="26,129,0,0" VerticalAlignment="Top" Foreground="#FFFDF9F9" Height="26" Width="71"/>
+                    <Label Name="lblCodigoPlan" Content="Codigo plan" HorizontalAlignment="Left" Margin="26,322,0,0" VerticalAlignment="Top" Foreground="#FFFDF9F9" Height="26" Width="80"/>
+                    <Label x:Name="lblVigente" Content="Vigente" HorizontalAlignment="Left" Margin="528,190,0,0" VerticalAlignment="Top" Foreground="#FFFDF9F9" Height="26" Width="54"/>
+                    <ComboBox x:Name="cbxPlan" HorizontalAlignment="Left" Margin="172,318,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
+                    <CheckBox Name="chkVigente" Content="Vigente" HorizontalAlignment="Left" Margin="516,225,0,0" VerticalAlignment="Top" Height="18" Width="66"/>
+                    <Label x:Name="lblDeclaracionSalud" Content="Declaracion salud" HorizontalAlignment="Left" Margin="353,190,0,0" VerticalAlignment="Top" Foreground="#FFFDF9F9" Height="26" Width="111"/>
+                    <CheckBox x:Name="chkDeclaracionSalud" Content="Salud" HorizontalAlignment="Left" Margin="385,224,0,0" VerticalAlignment="Top" Height="18" Width="54"/>
+                    <TextBox x:Name="txtObservaciones"  HorizontalAlignment="Left" Height="24" Margin="170,350,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <Label x:Name="lblObservaciones" Content="Observaciones" HorizontalAlignment="Left" Margin="25,353,0,0" VerticalAlignment="Top" Foreground="#FFFDF9F9" Height="26" Width="94"/>
+                    <TextBox x:Name="txtNumeroBuscar"  HorizontalAlignment="Left" Height="24" Margin="178,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="117"/>
+                    <Label x:Name="lblNumerodeContrato" Content="Buscar por numero" HorizontalAlignment="Left" Margin="26,61,0,0" VerticalAlignment="Top" Foreground="#FFFDF9F9" Width="124" Height="26"/>
+                    <Label x:Name="lblDatosContrato" Content="DatosContrato" HorizontalAlignment="Left" Margin="26,161,0,0" VerticalAlignment="Top" Foreground="#FFFDF9F9" Width="124" Height="26"/>
+                    <TextBox x:Name="txtDatosContrato" HorizontalAlignment="Left" Height="24" Margin="178,162,0,0"  VerticalAlignment="Top" Foreground="#FFFDF9F9" Width="124" />
                 </Grid>
             </TabItem>
-            <TabItem Header="ListaCLientes" Margin="404,-3,-420,0" >
-                <Grid  Margin="4,-3,-4,-1">
+            <TabItem Header="Listar CLientes" Margin="268,-3,-284,0"  Foreground="white">
+                <Grid  Margin="-4,-3,-4,-1">
                     <Grid.ColumnDefinitions>
 
-                        <ColumnDefinition Width="493*"/>
-                        <ColumnDefinition Width="294*"/>
+                        <ColumnDefinition Width="260*"/>
+                        <ColumnDefinition Width="92*"/>
+                        <ColumnDefinition Width="146*"/>
+                        <ColumnDefinition Width="297*"/>
 
                     </Grid.ColumnDefinitions>
 
-                    <DataGrid Name="dgListaClientes"  HorizontalAlignment="Left" Height="269" Margin="32,90,0,0" VerticalAlignment="Top" Width="720" Grid.ColumnSpan="2"/>
-                    <Button Name="btnDesplegar" Content="Desplegar clientes" HorizontalAlignment="Left" Margin="85,30,0,0" VerticalAlignment="Top" Width="174" Click="btnDesplegar_Click" Grid.Column="1"/>
-                    <Button Name="btnFiltraSexoCliente" Content="Filtrar" HorizontalAlignment="Left" Margin="5,30,0,0" VerticalAlignment="Top" Width="102" Click="btnFiltraSexoCliente_Click"/>
-                    <ComboBox Name="cbxFiltraSexoCliente" HorizontalAlignment="Left" Margin="400,30,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-                    <Label Content="Filtro por sexo&#xD;&#xA;" HorizontalAlignment="Left" Margin="271,30,0,0" VerticalAlignment="Top"/>
+                    <DataGrid Name="dgListaClientes"  HorizontalAlignment="Left" Height="269" Margin="32,90,0,0" VerticalAlignment="Top" Width="720" Grid.ColumnSpan="4"/>
+                    <Button Name="btnDesplegar" Content="Desplegar clientes" HorizontalAlignment="Left" Margin="85,30,0,0" VerticalAlignment="Top" Width="174" Click="btnDesplegar_Click" Grid.Column="3"/>
+                    <Button Name="btnFiltraSexoCliente" Content="Filtrar" HorizontalAlignment="Left" Margin="32,30,0,0" VerticalAlignment="Top" Width="102" Click="btnFiltraSexoCliente_Click"/>
+                    <ComboBox Name="cbxFiltraSexoCliente" HorizontalAlignment="Left" Margin="48,30,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" Grid.Column="2"/>
+                    <Label Content="Filtro por sexo&#xD;&#xA;" HorizontalAlignment="Left" Margin="10.572,30,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="1"/>
 
                 </Grid>
             </TabItem>
-            <TabItem Header="ListaContratos" Margin="421,-3,-453,0" >
+            <TabItem Header="Listar Contratos" Margin="284,-3,-316,0" Foreground="white" >
                 <Grid  Margin="-5,-4,-4,-1">
                     <Grid.ColumnDefinitions>
 
@@ -189,6 +196,11 @@
                 </Grid>
             </TabItem>
         </TabControl>
+        <DockPanel HorizontalAlignment="Left" Height="100" LastChildFill="False" Margin="-188,206,0,0" VerticalAlignment="Top" Width="100">
+
+        </DockPanel>
+
+
 
 
 

@@ -112,5 +112,17 @@
       <Name>belife.DALC</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Logo BeLife.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ClientAdd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ClientSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Clientes.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
